@@ -1,0 +1,27 @@
+{
+  "lmPortal2App": {
+    "tenantSuperAdmin": {
+      "home": {
+        "title": "Tenant Super Admins",
+        "createLabel": "Create a new Tenant Super Admin",
+        "createOrEditLabel": "Create or edit a Tenant Super Admin",
+        "notFound": "No Tenant Super Admins found"
+      },
+      "created": "A new Tenant Super Admin is created with identifier {{ param }}",
+      "updated": "A Tenant Super Admin is updated with identifier {{ param }}",
+      "deleted": "A Tenant Super Admin is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Tenant Super Admin {{ id }}?"
+      },
+      "detail": {
+        "title": "Tenant Super Admin"
+      },
+      "firstNameTenantSuperAdmin": "First Name Tenant Super Admin",
+      "lastNameTenantSuperAdmin": "Last Name Tenant Super Admin",
+      "userNameTenantSuperAdmin": "User Name Tenant Super Admin",
+      "emailTenantSuperAdmin": "Email Tenant Super Admin",
+      "passwordTenantSuperAdmin": "Password Tenant Super Admin",
+      "tenant": "Tenant"
+    }
+  }
+}

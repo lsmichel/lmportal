@@ -1,0 +1,45 @@
+{
+    "name": "TenantSuperAdmin",
+    "fields": [
+        {
+            "fieldName": "firstNameTenantSuperAdmin",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lastNameTenantSuperAdmin",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "userNameTenantSuperAdmin",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "emailTenantSuperAdmin",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "passwordTenantSuperAdmin",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "tenant",
+            "otherEntityRelationshipName": "tenantSuperAdmin",
+            "relationshipName": "tenant",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200408131900",
+    "entityTableName": "tenant_super_admin",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

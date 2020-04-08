@@ -1,0 +1,49 @@
+
+entity Tenant {
+ idTenant String ,
+ logoTenat String ,
+ spaceNameTenant String ,
+ phoneNumberTenant String ,
+ webSiteTenant String ,
+ emailTenant String , 
+ facebookTenant String ,
+ twitterTenant String ,
+ instagramTenant String ,
+ youtubeTenant String
+}
+
+entity TenantSuperAdmin {
+  firstNameTenantSuperAdmin String ,
+  lastNameTenantSuperAdmin String ,
+  userNameTenantSuperAdmin String ,
+  emailTenantSuperAdmin String ,
+  passwordTenantSuperAdmin String 
+}
+
+entity TenantUser {
+  firstNameTenantUser String ,
+  lastNameTenantUser String ,
+  userNameTenantUser String ,
+  emailTenantUser String ,
+  passwordTenantUser String 
+}
+entity Site {
+ libelle String ,
+ description String 
+}
+entity Location {
+  conntry String ,
+  city String  ,
+  zipCode String ,
+  adress String 
+}
+
+relationship OneToMany {
+	Tenant{tenantSuperAdmin} to TenantSuperAdmin{tenant},
+    Tenant{tenantUser} to TenantUser{tenant},
+    Tenant{site} to Site{tenant},
+	Location{site} to Site{location}
+}
+dto * with mapstruct 
+paginate * with pagination 
+service all with serviceImpl
