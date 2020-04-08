@@ -1,3 +1,19 @@
+
+
+-creer une base de donner nomer le LmPortal avec wamp ou xamp
+_cerer le user lsmichel/Ghamha123
+
+_positionner vous dans le repertoire du projet 
+
+lancer la commande mvnw (lance le front et le back)
+
+l'url pour acceder au frondend vous sera affiché
+
+
+
+
+
+
 # LmPortal2
 
 This application was generated using JHipster 6.8.0, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v6.8.0](https://www.jhipster.tech/documentation-archive/v6.8.0).
