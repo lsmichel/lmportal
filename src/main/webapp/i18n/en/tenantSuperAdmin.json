@@ -2,7 +2,7 @@
   "lmPortal2App": {
     "tenantSuperAdmin": {
       "home": {
-        "title": "Tenant Super Admins",
+        "title": "Tenant Super Admin",
         "createLabel": "Create a new Tenant Super Admin",
         "createOrEditLabel": "Create or edit a Tenant Super Admin",
         "notFound": "No Tenant Super Admins found"

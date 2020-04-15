@@ -4,7 +4,7 @@ import { Link, RouteComponentProps } from 'react-router-dom';
 import { Button, Row, Col } from 'reactstrap';
 import { Translate, ICrudGetAction } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import { DynamicFooter } from './footer-tenant';
 import { IRootState } from 'app/shared/reducers';
 import { getEntity } from './tenant.reducer';
 import { ITenant } from 'app/shared/model/tenant.model';
@@ -19,6 +19,7 @@ export const TenantDetail = (props: ITenantDetailProps) => {
 
   const { tenantEntity } = props;
   return (
+    <>
     <Row>
       <Col md="8">
         <h2>
@@ -100,7 +101,17 @@ export const TenantDetail = (props: ITenantDetailProps) => {
           </span>
         </Button>
       </Col>
+      <Row/>  
     </Row>
+    <nav  className="navbar bottom navbar-light bg-dark">
+  <a className="navbar-brand" href="#">Fixed bottom</a>
+</nav>
+   <DynamicFooter faceBookTenant={tenantEntity.facebookTenant}
+  youtubeTenant={tenantEntity.youtubeTenant}
+  instagramTenant={tenantEntity.instagramTenant}
+  twitterTenant={tenantEntity.twitterTenant}
+  /> 
+    </>
   );
 };
 
