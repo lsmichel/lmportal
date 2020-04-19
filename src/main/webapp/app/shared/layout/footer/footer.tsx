@@ -4,16 +4,32 @@ import React from 'react';
 import { Translate } from 'react-jhipster';
 import { Col, Row } from 'reactstrap';
 
-const Footer = props => (
-  <div className="footer page-content">
-    <Row>
-      <Col md="12">
-        <p>
-          <Translate contentKey="footer">Your footer</Translate>
-        </p>
-      </Col>
-    </Row>
+const Footer = props => {
+  return(
+  <nav className="navbar bottom navbar-expand-sm navbar-dark bg-dark">
+  <a className="navbar-brand" href="#">Bottom navbar</a>
+  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span className="navbar-toggler-icon"></span>
+  </button>
+  <div className="collapse navbar-collapse" id="navbarCollapse">
+    <ul className="navbar-nav mr-auto">
+      <li className="nav-item active">
+        <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+      </li>
+      <li className="nav-item">
+        <a className="nav-link" href="#">Link</a>
+      </li>
+      <li className="nav-item dropup">
+        <a className="nav-link dropdown-toggle" href="#" id="dropdown10" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropup</a>
+        <div className="dropdown-menu" aria-labelledby="dropdown10">
+          <a className="dropdown-item" href="#">Action</a>
+          <a className="dropdown-item" href="#">Another action</a>
+          <a className="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+    </ul>
   </div>
-);
-
+</nav>    
+)
+  }
 export default Footer;

@@ -12,7 +12,6 @@ import { getEntity, updateEntity, createEntity, reset } from './tenant.reducer';
 import { ITenant } from 'app/shared/model/tenant.model';
 import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
 import { mapIdList } from 'app/shared/util/entity-utils';
-import TabSwitcher, { Tab, TabPanel } from "../../shared/layout/multistepForm/TabSwitcher";
 
 export interface ITenantUpdateProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
@@ -85,14 +84,12 @@ export const TenantUpdate = (props: ITenantUpdateProps) => {
               ) : null}
               <AvGroup>
                 <Row>&nbsp;</Row>
-                {/* <Label id="idTenantLabel" for="tenant-idTenant">
+               {/* <Label id="idTenantLabel" for="tenant-idTenant">
                   <Translate contentKey="lmPortal2App.tenant.idTenant">Id Tenant</Translate>
                 </Label> 
-                <AvField id="tenant-idTenant" type="text" name="idTenant" />*/}
-              </AvGroup>
-              <TabSwitcher>
-                {/* ETAPE 1 RECAPITULATIF DES INFOS DE LA FICHE  */}
-                <TabPanel whenActive={1}>
+              <AvField id="tenant-idTenant" type="text" name="idTenant" /> */}
+              </AvGroup> 
+      
               <AvGroup>
                 <Label id="spaceNameTenantLabel" for="tenant-spaceNameTenant">
                   {/* <Translate contentKey="lmPortal2App.tenant.spaceNameTenant"> */}Nom de votre espace{/* </Translate> */}
@@ -100,22 +97,50 @@ export const TenantUpdate = (props: ITenantUpdateProps) => {
                 <AvField 
                 id="tenant-spaceNameTenant" 
                 type="text" 
+                placeholder="monEntreprise"
                 name="spaceNameTenant" 
                 required
-                errorMessage="Renseigner le nom de votre espace"/>
+                errorMessage="Renseigner le nom de votre espace"
+                validate={{
+                  required: {value: true, errorMessage: 'Renseignez le nom de votre espace'},
+                  minLength: {value: 3, errorMessage: 'La longueur du nom de votre espace  doit être comprise entre 3 et 12 caractères'},
+                  maxLength: {value: 12, errorMessage: 'La longueur du nom de votre espace  doit être comprise entre 3 et 12 caractères'}
+                }}
+                
+                
+                />
               </AvGroup>
               <AvGroup>
                 <Label id="phoneNumberTenantLabel" for="tenant-phoneNumberTenant">
                   {/* <Translate contentKey="lmPortal2App.tenant.phoneNumberTenant"> */}Num&eacute;ro de telephone{/* </Translate> */}
                 </Label>
-                <AvField id="tenant-phoneNumberTenant" type="number" name="phoneNumberTenant" />
+                <AvField id="tenant-phoneNumberTenant" type="text" name="phoneNumberTenant" 
+                placeholder="+225xxxxxxxx"
+                required
+                errorMessage='Renseignez un numéro de téléphone valide'
+                validate={{
+                  required: {value: true, errorMessage: 'Renseignez un numéro de téléphone valide'},
+                 pattern: {value:'([+][0-9]{10,16})$', errorMessage: "Entrez un numéro de télépnone valide ajouter l'indicatif (+225)" }
+                }}
+                />
               </AvGroup>
               <AvGroup>
                 <Label id="webSiteTenantLabel" for="tenant-webSiteTenant">
                   {/* <Translate contentKey="lmPortal2App.tenant.webSiteTenant"></Translate> */}
                   Renseigner votre site institutionnel
                 </Label>
-                <AvField id="tenant-webSiteTenant" type="text" name="webSiteTenant" />
+                <AvField id="tenant-webSiteTenant" type="text" name="webSiteTenant" 
+                placeholder="www.monsiteinstitutionel.com"
+                required={false}
+                errorMessage="Entrez un site correcte"
+                valide={{
+                  required: {value: false, errorMessage:""},
+                    pattern:{value:"^(http://www.|https://www.|http://|https://)?[a-z0-9]+([-.]{1}[a-z0-9]+)*.[a-z]{2,5}(:[0-9]{1,5})?(/.*)?$",
+                    errorMessage: "Entrez un site correcte" 
+                  }
+
+                }}
+                />
               </AvGroup>
               <AvGroup>
                 <Label id="emailTenantLabel" for="tenant-emailTenant">
@@ -124,19 +149,23 @@ export const TenantUpdate = (props: ITenantUpdateProps) => {
                 <AvField 
                  id="tenant-emailTenant" 
                  type="email" 
+                 placeholder="exemple@mailbox.com"
                  name="emailTenant" 
                  required
-                 errorMessage="Renseigner le champ email"
+                 errorMessage="Renseignez une adresse Email valide"
+                 validate={{
+                  required:  {value: true, errorMessage: 'Renseignez votre adresse Email'},
+                  minLength: {value: 6, errorMessage: 'La longueur de votre adresse Email  doit être comprise entre 6 et 16 caractères'},
+                  maxLength: {value: 32, errorMessage: 'La longueur de votre adresse Email  doit être comprise entre 6 et 16 caractères'}
+                    }}
                  />
               </AvGroup>
-              </TabPanel>
-              </TabSwitcher>
 
               <AvGroup>
                 <Label id="logoTenatLabel" for="tenant-logoTenat">
                   {/* <Translate contentKey="lmPortal2App.tenant.logoTenat"> */}Logo {/* </Translate> */}
                 </Label>
-                <AvInput id="tenant-logoTenat" type="file" name="logoTenat" />
+                <AvInput id="tenant-logoTenat" type="text" name="logoTenat" /> {/* file type us required */}
               </AvGroup>
               <AvGroup>
                 <Label id="facebookTenantLabel" for="tenant-facebookTenant">

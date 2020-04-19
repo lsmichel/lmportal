@@ -6,52 +6,57 @@ import { Link, RouteComponentProps } from 'react-router-dom';
 import { Button, Row, Col } from 'reactstrap';
 import { Translate, ICrudGetAction } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import {   } from "@fortawesome/free-solid-svg-icons";
+import {checkIfNotNull} from "../../shared/util/checkIfNotNull";
+
+
 
 export  const DynamicFooter =(props)=>{
     return(
-<Row md="12" className="page-content" style={{background: "#2d3246"}}>
-        <div className="container">
-          <div className="row row-30">
-            <div className="col-md-4 col-xl-5">
-              <div className="pr-xl-4"><a className="brand" href="index.html"><img className="brand-logo-light" src="images/agency/logo-inverse-140x37.png" alt="" width="140" height="37" srcSet="images/agency/logo-retina-inverse-280x74.png 2x"/></a>
-                <p>We are an award-winning creative agency, dedicated to the best result in web design, promotion, business consulting, and marketing.</p>
-              </div>
-            </div>
-            <div className="col-md-4">
-              <h5>Contacts</h5>
-              <dl className="contact-list">
-                <dt>Address:</dt>
-                <dd>798 South Park Avenue, Jaipur, Raj</dd>
-              </dl>
-              <dl className="contact-list">
-                <dt>email:</dt>
-                <dd><a href="mailto:#">dkstudioin@gmail.com</a></dd>
-              </dl>
-              <dl className="contact-list">
-                <dt>phones:</dt>
-                <dd><a href="tel:#">https://karosearch.com</a> <span>or</span> <a href="tel:#">https://karosearch.com</a>
-                </dd>
-              </dl>
-            </div>
-            <div className="col-md-4 col-xl-3">
-              <h5>Links</h5>
-              <ul className="nav-list">
-                <li><a href="#">About</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Contacts</a></li>
-                <li><a href="#">Pricing</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div className="row no-gutters social-container">
-          <div className="col"><a className="social-inner" href={props.facebookTenant}><span className="icon mdi mdi-facebook"></span><span>Facebook</span></a></div>
-          <div className="col"><a className="social-inner" href={props.instagramTenant}><span className="icon mdi mdi-instagram"></span><span>instagram</span></a></div>
-          <div className="col"><a className="social-inner" href={props.twitterTenant}><span className="icon mdi mdi-twitter"></span><span>twitter</span></a></div>
-          <div className="col"><a className="social-inner" href={props.youtubeTenant}><span className="icon mdi mdi-youtube-play"></span><span>google</span></a></div>
-        </div> 
-      </Row>
+	<section id="footerCustom"> 
+		<div className="container">
+			<div className="row text-center text-xs-center text-sm-left text-md-left">
+				<div className="col-xs-12 col-sm-6 col-md-6 text-white">
+					<h5>Contacts</h5>
+					<ul className="list-unstyled quick-links">
+            <li><div>Num&eacute;ro de t&eacute;l&eacute;phone : &nbsp;{checkIfNotNull(props.numeroTenant)}</div></li>
+						<li><div>Location</div></li>
+						<li><div >Email : {checkIfNotNull(props.emailTenant)}</div></li>
+						{/* <li><div >Videos</div></li> */}
+					</ul>
+				</div>
+				<div className="col-xs-12 col-sm-6 col-md-6">
+					<h5>Rejoignez nous sur les reseaux sociaux</h5>
+          <Row  className="list-unstyled quick-links">
+            <Col style={{height:"45px"}} md="2">
+            <a href={checkIfNotNull(props.facebookTenant)} ><span className="facebook">&nbsp;</span></a>
+            </Col>
+          <Col md="2">
+              <a href={checkIfNotNull(props.instagramTenant)} ><span className="instagram">&nbsp;</span></a>
+          </Col>
+         <Col md="2">
+            <a href={checkIfNotNull(props.youtubeTenant)} ><span className="youtube">&nbsp;</span></a>
+          </Col>
+         <Col md="2">
+             <a href={checkIfNotNull(props.twitterTenant)} ><span className="twitter">&nbsp;</span></a>
+          </Col>
+          </Row>
+				</div>
+			</div>
+			<div>
+			</div>	
+			<div className="row">
+				<div className="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+					<p>{props.spaceNameTenant}</p>
+
+          <br/>
+					<p className="h6">Conception : LmPortal</p>
+      	</div>
+				<hr/>
+			</div>	
+		</div>
+	</section>
+
       )
       }
 

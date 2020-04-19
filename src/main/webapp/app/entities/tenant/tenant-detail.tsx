@@ -5,6 +5,8 @@ import { Button, Row, Col } from 'reactstrap';
 import { Translate, ICrudGetAction } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { DynamicFooter } from './footer-tenant';
+import { DynamicHeader } from './header-tenant';
+
 import { IRootState } from 'app/shared/reducers';
 import { getEntity } from './tenant.reducer';
 import { ITenant } from 'app/shared/model/tenant.model';
@@ -20,8 +22,9 @@ export const TenantDetail = (props: ITenantDetailProps) => {
   const { tenantEntity } = props;
   return (
     <>
-    <Row>
-      <Col md="8">
+    <Row><DynamicHeader/></Row>
+    <Row className="bodyDetails" >
+      <Col className="bodyDetails" md="8">
         <h2>
           <Translate contentKey="lmPortal2App.tenant.detail.title">Tenant</Translate> [<b>{tenantEntity.id}</b>]
         </h2>
@@ -88,7 +91,7 @@ export const TenantDetail = (props: ITenantDetailProps) => {
           <dd>{tenantEntity.youtubeTenant}</dd>
         </dl>
         <Button tag={Link} to="/tenant" replace color="info">
-          <FontAwesomeIcon icon="arrow-left" />{' '}
+          <FontAwesomeIcon icon="save" />{' '}
           <span className="d-none d-md-inline">
             <Translate contentKey="entity.action.back">Back</Translate>
           </span>
@@ -103,14 +106,14 @@ export const TenantDetail = (props: ITenantDetailProps) => {
       </Col>
       <Row/>  
     </Row>
-    <nav  className="navbar bottom navbar-light bg-dark">
-  <a className="navbar-brand" href="#">Fixed bottom</a>
-</nav>
-   <DynamicFooter faceBookTenant={tenantEntity.facebookTenant}
-  youtubeTenant={tenantEntity.youtubeTenant}
-  instagramTenant={tenantEntity.instagramTenant}
-  twitterTenant={tenantEntity.twitterTenant}
-  /> 
+   <Row><DynamicFooter 
+     facebookTenant={tenantEntity.facebookTenant}
+     youtubeTenant={tenantEntity.youtubeTenant}
+     instagramTenant={tenantEntity.instagramTenant}
+     twitterTenant={tenantEntity.twitterTenant}
+     numeroTenant={tenantEntity.phoneNumberTenant}
+     emailTenant={tenantEntity.emailTenant}
+  /> </Row>
     </>
   );
 };
