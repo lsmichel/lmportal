@@ -1,0 +1,76 @@
+{
+    "name": "Tenant",
+    "fields": [
+        {
+            "fieldName": "idTenant",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "logoTenat",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "spaceNameTenant",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "phoneNumberTenant",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "webSiteTenant",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "emailTenant",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "facebookTenant",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "twitterTenant",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "instagramTenant",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "youtubeTenant",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "tenantSuperAdmin",
+            "otherEntityRelationshipName": "tenant",
+            "relationshipName": "tenantSuperAdmin"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "tenantUser",
+            "otherEntityRelationshipName": "tenant",
+            "relationshipName": "tenantUser"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "site",
+            "otherEntityRelationshipName": "tenant",
+            "relationshipName": "site"
+        }
+    ],
+    "changelogDate": "20200408132300",
+    "entityTableName": "tenant",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

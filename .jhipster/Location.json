@@ -1,0 +1,40 @@
+{
+    "name": "Location",
+    "fields": [
+        {
+            "fieldName": "conntry",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "city",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "zipCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "adress",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "site",
+            "otherEntityRelationshipName": "location",
+            "relationshipName": "site"
+        }
+    ],
+    "changelogDate": "20200408132900",
+    "entityTableName": "location",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}
