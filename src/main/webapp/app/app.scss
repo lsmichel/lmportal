@@ -4,6 +4,12 @@
 body {
   background: #fafafa;
   margin: 0;
+  padding: 0;
+}
+
+html {
+  padding: 0;
+  margin: 0;
 }
 
 a {
@@ -23,19 +29,23 @@ a {
 
 .app-container {
   box-sizing: border-box;
+  section {
+    padding: 0rem;
+  }
   .view-container {
     width: 100%;
     height: calc(100% - 40px);
     overflow-y: auto;
     overflow-x: hidden;
-    padding: 1rem;
+    padding: 0px;
     .card {
-      padding: 1rem;
+      padding: 0rem;
     }
     .view-routes {
       height: 100%;
       > div {
         height: 100%;
+        padding: 0px;
       }
     }
   }

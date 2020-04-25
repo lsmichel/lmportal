@@ -11,6 +11,8 @@ import Logout from 'app/modules/login/logout';
 import Home from 'app/modules/home/home';
 import Entities from 'app/entities';
 import PrivateRoute from 'app/shared/auth/private-route';
+import LmhomePage from 'app/shared/layout/homePage/lmHomePage';
+
 import ErrorBoundaryRoute from 'app/shared/error/error-boundary-route';
 import PageNotFound from 'app/shared/error/page-not-found';
 import { AUTHORITIES } from 'app/config/constants';
@@ -36,7 +38,7 @@ const Routes = () => (
       <ErrorBoundaryRoute path="/account/reset/finish/:key?" component={PasswordResetFinish} />
       <PrivateRoute path="/admin" component={Admin} hasAnyAuthorities={[AUTHORITIES.ADMIN]} />
       <PrivateRoute path="/account" component={Account} hasAnyAuthorities={[AUTHORITIES.ADMIN, AUTHORITIES.USER]} />
-      <ErrorBoundaryRoute path="/" exact component={Home} />
+      <ErrorBoundaryRoute path="/" exact component={LmhomePage} />
       <PrivateRoute path="/" component={Entities} hasAnyAuthorities={[AUTHORITIES.USER]} />
       <ErrorBoundaryRoute component={PageNotFound} />
     </Switch>

@@ -14,6 +14,8 @@ import { getProfile } from 'app/shared/reducers/application-profile';
 import { setLocale } from 'app/shared/reducers/locale';
 import Header from 'app/shared/layout/header/header';
 import Footer from 'app/shared/layout/footer/footer';
+import LmHomePage from 'app/shared/layout/homePage/LmHomePage';
+
 import { hasAnyAuthority } from 'app/shared/auth/private-route';
 import ErrorBoundary from 'app/shared/error/error-boundary';
 import { AUTHORITIES } from 'app/config/constants';
@@ -32,12 +34,11 @@ export const App = (props: IAppProps) => {
     props.getProfile();
   }, []);
 
-  const paddingTop = '60px';
   return (
     <Router basename={baseHref}>
-      <div className="app-container" style={{ paddingTop }}>
+      <div className="app-container" >
         <ToastContainer position={toast.POSITION.TOP_LEFT} className="toastify-container" toastClassName="toastify-toast" />
-        <ErrorBoundary>
+        {/* <ErrorBoundary>
           <Header
             isAuthenticated={props.isAuthenticated}
             isAdmin={props.isAdmin}
@@ -47,14 +48,14 @@ export const App = (props: IAppProps) => {
             isInProduction={props.isInProduction}
             isSwaggerEnabled={props.isSwaggerEnabled}
           />
-        </ErrorBoundary>
+        </ErrorBoundary> */}
         <div className="container-fluid view-container" id="app-view-container">
-          <Card className="jh-card">
+          {/* <Card className="jh-card">           </Card> */}
+
             <ErrorBoundary>
               <AppRoutes />
             </ErrorBoundary>
-          </Card>
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </div>
     </Router>
