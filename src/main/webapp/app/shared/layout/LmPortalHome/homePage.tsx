@@ -131,7 +131,7 @@ return(
                             </div>
                             <h3 className="title">Personalisation</h3>
                             <p className="description">
-                                Ajouter des images , un logo afin d&apos;obtenir le site de vos r&ecirc;ves
+                                Ajouter des images , votre logo afin d&apos;obtenir le site de vos r&ecirc;ves , personnalisé le &agrave; votre guise
                                 <br/>&nbsp;<br></br>
                                 &nbsp;
                                 <br/>
@@ -153,7 +153,7 @@ return(
                             <h3 className="title">Publication</h3>
                             <p className="description">
                                 Une fois que vous avez personnalis&eacute; votre site internet , publiez le afin que 
-                                vos potentiels clients puissant le visiter
+                                vos potentiels clients puissent le visiter
                             </p>
                         </div>
                     </a>
