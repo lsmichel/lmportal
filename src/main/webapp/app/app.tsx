@@ -3,6 +3,7 @@ import './app.scss';
 
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { Card } from 'reactstrap';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import { hot } from 'react-hot-loader';
@@ -13,6 +14,10 @@ import { getProfile } from 'app/shared/reducers/application-profile';
 import { setLocale } from 'app/shared/reducers/locale';
 import Header from 'app/shared/layout/header/header';
 import Footer from 'app/shared/layout/footer/footer';
+import Home from 'app/modules/home/home';
+
+import {LmHomePage} from 'app/shared/layout/LmPortalHome/homePage';
+
 import { hasAnyAuthority } from 'app/shared/auth/private-route';
 import ErrorBoundary from 'app/shared/error/error-boundary';
 import { AUTHORITIES } from 'app/config/constants';
@@ -31,12 +36,11 @@ export const App = (props: IAppProps) => {
     props.getProfile();
   }, []);
 
-  const paddingTop = '60px';
   return (
     <Router basename={baseHref}>
-      <div className="app-container" style={{ paddingTop }}>
+      <div className="app-container" >
         <ToastContainer position={toast.POSITION.TOP_LEFT} className="toastify-container" toastClassName="toastify-toast" />
-        <ErrorBoundary>
+        {/* <ErrorBoundary>
           <Header
             isAuthenticated={props.isAuthenticated}
             isAdmin={props.isAdmin}
@@ -46,17 +50,17 @@ export const App = (props: IAppProps) => {
             isInProduction={props.isInProduction}
             isSwaggerEnabled={props.isSwaggerEnabled}
           />
-        </ErrorBoundary>
-            
+        </ErrorBoundary> */}
         <div className="container-fluid view-container" id="app-view-container">
+          {/* <Card className="jh-card">           </Card> */}
+
             <ErrorBoundary>
-              <AppRoutes />
+            <AppRoutes/>
+              <LmHomePage/>
             </ErrorBoundary>
-            </div>
-            {/* <Footer />  */}
-
+          {/* <Footer /> */}
+        </div>
       </div>
-
     </Router>
   );
 };

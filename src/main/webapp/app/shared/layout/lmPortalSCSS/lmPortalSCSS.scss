@@ -1,0 +1,240 @@
+@charset "UTF-8";
+
+/* font-family: 'Catamaran', sans-serif; */
+
+/* @font-face{
+
+    font-family: 'Catamaran', sans-serif ;
+    src:"../font/Catamaran-medium.ttf"
+} */
+
+/*
+
+
+
+*/
+
+@import 'lmPortalVariable';
+
+html {
+  scroll-behavior: smooth;
+}
+
+body,
+html {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  @font-face {
+    font-family: 'Catamaran', sans-serif;
+    src: '../font/Catamaran-medium.ttf';
+  }
+}
+
+a,
+a:hover {
+  text-decoration: none;
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+.separator {
+  height: 3px;
+  width: 5%;
+  border: none;
+  background-color: $bleuMainColor;
+  box-shadow: none;
+}
+/* header design**/
+.header {
+  background-color: $bleuMainColor;
+  height: 70px;
+  line-height: 70px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9;
+
+  /* position:fixed;
+    z-index: 2px; */
+}
+
+.logo {
+  color: #ffff;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  float: left;
+}
+
+.customMenu {
+  background-color: $bleuMainColor;
+  //height:150px;
+}
+.navbar {
+  padding: 0.9rem 2rem;
+}
+
+.navbar-light .navbar-brand {
+  color: $menuItemCol;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: $menuItemCol;
+}
+
+.navbar-light .navbar-nav .nav-link a:hover {
+  $ButtonDarkBlue: pink;
+  color: $ButtonDarkBlue;
+}
+
+.menu a:hover {
+}
+/* banner  design**/
+
+.banner {
+  width: 100%;
+  max-width: 100%;
+  z-index: 0;
+  background-color: #eeee;
+}
+
+.ban {
+  margin-top: 70px;
+}
+.ban img {
+  width: 80%;
+  max-width: 80%;
+  height: 350px;
+  position: relative;
+  margin-left: 20%;
+  margin-bottom: 155px;
+}
+
+.container .inner-banner {
+  //margin-top:175px;
+  margin-top: 3px;
+  padding-bottom: 85px;
+  border-radius: 5px;
+  text-align: center;
+  border: 1px solid green;
+}
+
+#headerBottom {
+  margin-top: -105px;
+  z-index: 2;
+  border: 1px solid red;
+}
+
+.inner-banner {
+  /* position:absolute; */
+  text-align: center;
+  background-color: #ffff;
+  margin-top: 251px;
+}
+
+.inner-banner h1 {
+  color: $bleuMainColor;
+  padding-top: 25px;
+  padding-bottom: 45px;
+
+  text-shadow: 1px 1px 20px #0000;
+}
+
+.inner-banner .btn-custom,
+.custom-footer {
+  background-color: $bleuMainColor;
+  color: #ffff;
+}
+
+.inner-banner .btn-custom:hover,
+.custom-footer:hover {
+  background-color: $ButtonDarkBlue;
+}
+
+/* about*/
+.about article {
+  margin-top: 25px;
+  margin-bottom: 10%;
+}
+
+.about article h2 {
+  text-align: center;
+}
+
+#about {
+  margin-top: 25px;
+  text-align: center;
+}
+
+/* portfolio*/
+
+.portfolio {
+  /* text-align:center; */
+  background-color: #eeeeee;
+  padding-bottom: 10%;
+}
+
+#portfolio {
+  text-align: center;
+}
+.container h2 {
+  padding-top: 50px;
+}
+.portfolio .item-folio {
+  height: 280px;
+  background-color: $bleuMainColor;
+  text-align: center;
+  padding-bottom: 25%;
+  /* background-color: orange; */
+}
+/* contact*/
+
+#contact {
+  color: #ffff;
+  text-align: center;
+}
+/* footer */
+
+.footer {
+  height: 600px;
+  background-color: $ButtonDarkBlue;
+}
+
+/*  */
+
+input {
+  margin-bottom: 10px;
+}
+
+input[type='text'],
+input[type='email'] {
+  height: 50px;
+  border: none;
+  border-radius: 0%;
+}
+
+textarea {
+  width: auto;
+  height: 200px;
+}
+
+.footer p {
+  padding-top: 100px;
+  text-align: center;
+  color: #ffff;
+  border-radius: 0%;
+}
+.custom-footer {
+  float: right;
+}
+
+.customSubmit {
+  float: right;
+  margin-top: 20px;
+  width: auto;
+}
