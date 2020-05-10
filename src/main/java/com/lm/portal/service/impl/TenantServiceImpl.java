@@ -99,7 +99,6 @@ public class TenantServiceImpl implements TenantService {
     }
 
     @Override
-    @Transactional(readOnly = true)
     public TenantWithAdminResponseDTO createTenantWithAdmin(TenantWithAdminDTO  tenantWithAdminDTO){
 
         TenantWithAdminResponseDTO _response = new TenantWithAdminResponseDTO();
