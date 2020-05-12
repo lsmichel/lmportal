@@ -2,6 +2,7 @@ import axios from 'axios';
 import { ICrudGetAction, ICrudGetAllAction, ICrudPutAction, ICrudDeleteAction } from 'react-jhipster';
 
 import { cleanEntity } from 'app/shared/util/entity-utils';
+import { CreateTenantWithAdmin } from 'app/shared/util/requestBody-utils';
 import { REQUEST, SUCCESS, FAILURE } from 'app/shared/reducers/action-type.util';
 
 import { ITenantWithAdmin, defaultValue } from 'app/shared/CustomModel/tenant-with-admin.model';
@@ -97,7 +98,7 @@ export default (state: TenantWithAdminState = initialState, action): TenantWithA
   }
 };
 
-const apiUrl = '/api​/tenants-with-admin';
+const apiUrl = 'api​/tenants-with-admin';
 
 // Actions
 

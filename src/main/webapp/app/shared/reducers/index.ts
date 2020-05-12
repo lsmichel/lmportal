@@ -32,6 +32,8 @@ import site, {
 import location, {
   LocationState
 } from 'app/entities/location/location.reducer';
+
+import tenantWithAdmin, { TenantWithAdminState } from 'app/CustomEntities/tenantWithAdmin/tenantWithAdmin.reducer';
 /* jhipster-needle-add-reducer-import - JHipster will add reducer here */
 
 export interface IRootState {
@@ -52,6 +54,7 @@ export interface IRootState {
   readonly location: LocationState;
   /* jhipster-needle-add-reducer-type - JHipster will add reducer type here */
   readonly loadingBar: any;
+  readonly tenantWithAdmin: TenantWithAdminState;
 }
 
 const rootReducer = combineReducers<IRootState>({
@@ -71,7 +74,8 @@ const rootReducer = combineReducers<IRootState>({
   site,
   location,
   /* jhipster-needle-add-reducer-combine - JHipster will add reducer here */
-  loadingBar
+  loadingBar,
+  tenantWithAdmin
 });
 
 export default rootReducer;

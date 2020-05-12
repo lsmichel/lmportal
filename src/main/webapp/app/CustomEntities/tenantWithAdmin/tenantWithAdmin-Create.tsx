@@ -6,29 +6,23 @@ import { AvFeedback, AvForm, AvGroup, AvInput, AvField } from 'availity-reactstr
 import { Translate, translate, ICrudGetAction, ICrudGetAllAction, ICrudPutAction } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IRootState } from 'app/shared/reducers';
-
-import { ITenant } from 'app/shared/model/tenant.model';
-import { getEntities as getTenants } from 'app/entities/tenant/tenant.reducer';
-import { ILocation } from 'app/shared/model/location.model';
-import { getEntities as getLocations } from 'app/entities/location/location.reducer';
 // import { getEntity, updateEntity, createEntity, reset } from './tenantWithAdmin.reducer';
 import {  createEntity } from './tenantWithAdmin.reducer';
+import { ITenantSuperAdminInfo } from 'app/shared/CustomModel/tenant-superAdmin-info.model';
 
-import { ISite } from 'app/shared/model/site.model';
 import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
 import { mapIdList } from 'app/shared/util/entity-utils';
 
-export interface ISiteUpdateProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
-export const SiteUpdate = (props: ISiteUpdateProps) => {
-  const [tenantId, setTenantId] = useState('0');
-  const [locationId, setLocationId] = useState('0');
-  const [isNew, setIsNew] = useState(!props.match.params || !props.match.params.id);
+export interface ITenantWithAdminProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
-  const { siteEntity, tenants, locations, loading, updating } = props;
+export const TenantWithAdminUpdate = (props: ITenantWithAdminProps) => {
+ 
+
+  const { tenantWithAdminEntity, loading } = props;
 
   const handleClose = () => {
-    props.history.push('/site' + props.location.search);
+    props.history.push('/inscription' );
   };
 
   useEffect(() => {
@@ -51,17 +45,12 @@ export const SiteUpdate = (props: ISiteUpdateProps) => {
   const saveEntity = (event, errors, values) => {
     if (errors.length === 0) {
       const entity = {
-        ...siteEntity,
+        ...tenantWithAdminEntity,
         ...values
       };
-
-      if (isNew) {
-        props.createEntity(entity);
-      } else {
         props.createEntity(entity);
       }
-    }
-  };
+    };
 
   return (
     <div>
@@ -77,58 +66,36 @@ export const SiteUpdate = (props: ISiteUpdateProps) => {
           {loading ? (
             <p>Loading...</p>
           ) : (
-            <AvForm model={isNew ? {} : siteEntity} onSubmit={saveEntity}>
-              {!isNew ? (
-                <AvGroup>
-                  <Label for="site-id">
-                    <Translate contentKey="global.field.id">ID</Translate>
-                  </Label>
-                  <AvInput id="site-id" type="text" className="form-control" name="id" required readOnly />
-                </AvGroup>
-              ) : null}
+            <AvForm model={{}} onSubmit={saveEntity}>
               <AvGroup>
-                <Label id="libelleLabel" for="site-libelle">
-                  <Translate contentKey="lmPortal2App.site.libelle">Libelle</Translate>
+                <Label id="lastNameTenantSuperAdmin" for="site-libelle">
+                  {/* <Translate contentKey="lmPortal2App.site.libelle">Libelle</Translate> */}
+                  Nom
                 </Label>
-                <AvField id="site-libelle" type="text" name="libelle" />
+                <AvField id="lastNameTenantSuperAdmin" type="text" name="lastNameTenantSuperAdmin" />
               </AvGroup>
               <AvGroup>
-                <Label id="descriptionLabel" for="site-description">
-                  <Translate contentKey="lmPortal2App.site.description">Description</Translate>
+                <Label id="firstNameTenantSuperAdmin" for="firstNameTenantSuperAdmin">
+                  {/* <Translate contentKey="lmPortal2App.site.description">Description</Translate> */}
+                  Pr&eacute;nom
                 </Label>
-                <AvField id="site-description" type="text" name="description" />
+                <AvField id="firstNameTenantSuperAdmin" type="text" name="Pr&eacute;nom" />
               </AvGroup>
               <AvGroup>
-                <Label for="site-tenant">
-                  <Translate contentKey="lmPortal2App.site.tenant">Tenant</Translate>
+                <Label for="emailTenantSuperAdmin">
+                  {/* <Translate contentKey="lmPortal2App.site.tenant">Tenant</Translate> */}
+                  Email
                 </Label>
-                <AvInput id="site-tenant" type="select" className="form-control" name="tenantId">
-                  <option value="" key="0" />
-                  {tenants
-                    ? tenants.map(otherEntity => (
-                        <option value={otherEntity.id} key={otherEntity.id}>
-                          {otherEntity.id}
-                        </option>
-                      ))
-                    : null}
-                </AvInput>
+                <AvField id="emailTenantSuperAdmin" type="text" className="form-control" name="emailTenantSuperAdmin"/>
               </AvGroup>
               <AvGroup>
-                <Label for="site-location">
-                  <Translate contentKey="lmPortal2App.site.location">Location</Translate>
+                <Label for="userNameTenantSuperAdmin">
+                  {/* <Translate contentKey="lmPortal2App.site.location">Location</Translate> */}
+                Nom d&apos;utilisateur
                 </Label>
-                <AvInput id="site-location" type="select" className="form-control" name="locationId">
-                  <option value="" key="0" />
-                  {locations
-                    ? locations.map(otherEntity => (
-                        <option value={otherEntity.id} key={otherEntity.id}>
-                          {otherEntity.id}
-                        </option>
-                      ))
-                    : null}
-                </AvInput>
+                <AvField id="emailTenantSuperAdmin" type="text" className="form-control" name="emailTenantSuperAdmin"/>
               </AvGroup>
-              <Button tag={Link} id="cancel-save" to="/site" replace color="info">
+              <Button tag={Link} id="cancel-save" to="/homePage" replace color="info">
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;
                 <span className="d-none d-md-inline">
@@ -136,7 +103,9 @@ export const SiteUpdate = (props: ISiteUpdateProps) => {
                 </span>
               </Button>
               &nbsp;
-              <Button color="primary" id="save-entity" type="submit" disabled={updating}>
+              <Button color="primary" id="save-entity" type="submit" >
+              {/* <Button color="primary" id="save-entity" type="submit" disabled={createEntity}> */}
+
                 <FontAwesomeIcon icon="save" />
                 &nbsp;
                 <Translate contentKey="entity.action.save">Save</Translate>
@@ -150,11 +119,9 @@ export const SiteUpdate = (props: ISiteUpdateProps) => {
 };
 
 const mapStateToProps = (storeState: IRootState) => ({
-  tenants: storeState.tenant.entities,
-  locations: storeState.location.entities,
-  siteEntity: storeState.site.entity,
+  tenantWithAdminEntity: storeState.tenantWithAdmin.entity,
   loading: storeState.site.loading,
-  updating: storeState.site.updating,
+  updating: storeState.tenantWithAdmin.updating,
   updateSuccess: storeState.site.updateSuccess
 });
 
@@ -163,11 +130,11 @@ const mapDispatchToProps = {
   // getLocations,
   // getEntity,
   // updateEntity,
-  createEntity,
+    createEntity
   // reset
 };
 
 type StateProps = ReturnType<typeof mapStateToProps>;
 type DispatchProps = typeof mapDispatchToProps;
 
-export default connect(mapStateToProps, mapDispatchToProps)(SiteUpdate);
+export default connect(mapStateToProps, mapDispatchToProps)(TenantWithAdminUpdate);
