@@ -48,7 +48,7 @@ export const TenantWithAdminUpdate = (props: ITenantWithAdminProps) => {
         ...tenantWithAdminEntity,
         ...values
       };
-        props.createEntity(entity);
+        props.createEntity(entity)
       }
     };
 
