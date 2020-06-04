@@ -52,9 +52,10 @@ export interface IRootState {
   readonly tenantUser: TenantUserState;
   readonly site: SiteState;
   readonly location: LocationState;
+  readonly tenantWithAdmin: TenantWithAdminState;
+
   /* jhipster-needle-add-reducer-type - JHipster will add reducer type here */
   readonly loadingBar: any;
-  readonly tenantWithAdmin: TenantWithAdminState;
 }
 
 const rootReducer = combineReducers<IRootState>({
@@ -73,9 +74,9 @@ const rootReducer = combineReducers<IRootState>({
   tenantUser,
   site,
   location,
+  tenantWithAdmin,
   /* jhipster-needle-add-reducer-combine - JHipster will add reducer here */
-  loadingBar,
-  tenantWithAdmin
+  loadingBar
 });
 
 export default rootReducer;
